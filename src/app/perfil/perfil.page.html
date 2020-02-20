@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-toolbar color = "primary">
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
+          </ion-buttons>
+      <ion-title color = "secondary">Perfil</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+       </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+   <ion-item>
+      Creditos Aprobados:
+      <ion-item item-end>
+        {{creditosAprobados}}
+      </ion-item>
+    </ion-item>
+    <ion-item>
+        Materias Restantes:
+        <ion-item item-end>
+          {{cuantasPorAprobar}}
+        </ion-item>
+      </ion-item>
+    <ion-item>
+        <ion-label>Mostrar Aprobadas</ion-label>
+        <ion-toggle  color="success" [(ngModel)]="mostrarAprobadas"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Mostrar Por Aprobar</ion-label>
+        <ion-toggle  color="success" [(ngModel)]="mostrarPorAprobar"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label>Lista de Ubicacion</ion-label>
+        <ion-select [(ngModel)]="lista" (ionChange)="Seleccionada($event)">
+            <ion-select-option value="lista1">Lista 1</ion-select-option>
+            <ion-select-option value="lista2">Lista 2</ion-select-option>
+            <ion-select-option value="lista3">Lista 3</ion-select-option>
+            <ion-select-option value="lista4">Lista 4</ion-select-option>
+            <ion-select-option value="lista5">Lista 5</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    <div *ngIf="mostrarAprobadas">
+        <ion-list>
+            <ion-list-header >
+                Materias Aprobadas
+            </ion-list-header>
+            <ion-item *ngFor="let materiaAprobada of materiasAprobadas">
+                {{ materiaAprobada }}
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="mostrarPorAprobar">
+            <ion-list>
+                <ion-list-header>
+                    Materias Por Aprobar
+                </ion-list-header>
+                <ion-item *ngFor="let materiaPorAprobar of materiasPorAprobar">
+                    {{ materiaPorAprobar }}
+                </ion-item>
+            </ion-list>
+        </div>
+</ion-content>

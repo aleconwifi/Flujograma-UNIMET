@@ -1,0 +1,82 @@
+<ion-header>
+    <ion-toolbar color = "primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="#" (click)="GoBack()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{name}}</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+       </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <h2>{{codigo}}</h2>
+    </ion-item>
+    
+
+    <ion-item>
+      Periodo
+      <ion-item item-end>
+        {{periodo}}
+      </ion-item>
+    </ion-item>
+    
+
+    <ion-item *ngIf="prelaciones">
+      Prelaciones
+    </ion-item>
+    <ion-item> 
+        <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoPrelaciones(prelacion1)"  *ngIf="prelacion1 !== undefined" >{{prelacion1n}}</ion-button>
+      </ion-item>
+    <ion-item  *ngIf="prelacion2 !== undefined" >  
+        <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoPrelaciones(prelacion2)">{{prelacion2n}}</ion-button>
+      </ion-item>
+    
+    
+    <ion-item *ngIf="antelaciones">
+      Antelaciones
+    </ion-item>
+
+      <ion-item *ngIf="antelacion1 !== undefined"> 
+          <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion1)">{{antelacion1n}}</ion-button>
+        </ion-item>
+
+      <ion-item *ngIf="antelacion2 !== undefined"> 
+            <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion2)">{{antelacion2n}}</ion-button>
+          </ion-item>
+      
+      <ion-item *ngIf="antelacion3 !== undefined"> 
+            <ion-button size="small" shape="round" color="primary" fill="outline" (click)="GoAntelaciones(antelacion3)">{{antelacion1n}}</ion-button>
+          </ion-item>
+
+
+    <ion-item>
+      Creditos Para Ver
+      <ion-item item-end>
+        {{creditosParaVer}}
+      </ion-item>
+    </ion-item>
+
+    <ion-item>
+      Trimestres Disponibles
+      <ion-item item-end>
+        {{T1}}
+      </ion-item>
+      <ion-item item-end>
+        {{T2}}
+      </ion-item>
+      <ion-item item-end>
+        {{T3}}
+      </ion-item>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Aprobada</ion-label>
+      <ion-checkbox [(ngModel)]="aprobada" (ionChange)="checkAprobada()" ></ion-checkbox>
+    </ion-item>
+  </ion-list>
+</ion-content>

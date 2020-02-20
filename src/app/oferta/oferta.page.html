@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar color = "primary">
+      <ion-buttons slot="start">
+        <ion-back-button color="secondary"></ion-back-button>
+      </ion-buttons>
+      <ion-title color = "secondary">Oferta</ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button></ion-menu-button>
+       </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item button *ngFor="let itemb of itemsb" block (click)="doConfirm(itemb)">
+     <ion-label color="tertiary">
+          {{itemb.name}} 
+        </ion-label>
+    </ion-item>
+
+    <ion-list-header>
+
+            <ion-title position="fixed" color="success">Trimestre 1 </ion-title>
+            <ion-toggle  color="success" [(ngModel)]="mostarT1"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostarT1">       
+            <ion-item button *ngFor="let itemt1 of itemst1" (click)="Go(itemt1._id)">
+                <ion-label > {{itemt1.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+
+    <ion-list-header>
+            <ion-title position="fixed" color="success">Trimestre 2 </ion-title>
+            <ion-toggle  color="success" [(ngModel)]="mostarT2"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostarT2">       
+            <ion-item button *ngFor="let itemt2 of itemst2" (click)="Go(itemt2._id)">
+                <ion-label > {{itemt2.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+
+    <ion-list-header>
+            <ion-title position="fixed" color="success">Trimestre 3 </ion-title>
+            <ion-toggle  color="success" [(ngModel)]="mostarT3"></ion-toggle>
+          </ion-list-header>
+        <ion-item-group *ngIf="mostarT3">       
+            <ion-item button *ngFor="let itemt3 of itemst3" (click)="Go(itemt3._id)">
+                <ion-label > {{itemt3.name}} </ion-label>
+            </ion-item>
+          </ion-item-group>
+    </ion-list>
+</ion-content>
