@@ -34,7 +34,7 @@ export class ThemeService {
 }
 
 const defaults = {
-  primary: '#6B7A8F',
+  primary: '#42007C',
   secondary: '#F7882F',
   tertiary: '#F7C331',
   success: '#DCC7AA',
@@ -77,7 +77,7 @@ function CSSTextGenerator(colors) {
     --ion-tabbar-text-color-active: ${success};
 
     --ion-color-primary: ${primary} ;
-    --ion-color-primary-rgb: 107,122,143;
+    --ion-color-primary-rgb: 66, 0, 124;
     --ion-color-primary-contrast: ${contrast(primary)};
     --ion-color-primary-contrast-rgb: 255,255,255;
     --ion-color-primary-shade: ${Color(primary).darken(shadeRatio)};
